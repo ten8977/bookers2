@@ -16,7 +16,7 @@
       <% if user_signed_in? %>
         <li>
           <%= link_to "Bookers", top_path %>
-          <%= link_to "Home", top_path %>
+          <%= link_to "Home", top_path %>. <!--usersのshowへ-->
           <%= link_to "Users", users_path(current_user) %>  <!--usersのindexへ-->
           <%= link_to "Books", books_path(current_user) %> <!--booksのindexへ-->
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -33,5 +33,16 @@
     </header>
 
     <%= yield %>
+    
+    <footer>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
   </body>
 </html>
