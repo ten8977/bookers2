@@ -5,21 +5,23 @@
       <div class="row">
         <div class="col-md-3">
           <h2>User info</h2>
-          <!--ユーザー画像を取得したい-->
+          <%= image_tag user.get_profile_image(100,100) %>
           <table class="table">
             <tbody>
               <tr></tr>
               <tr>
                 <th>name</th>
-                <th><!--ユーザー取得したい--></th>
+                <th><%= user.name %></th>
               </tr>
                 <th>introduction</th>
-                <th><!--ユーザー自己紹介--></th>
+                <th><%= user.introduction %></th>
               </tr>
             </tbody>
           </table>
           <div class="row">
-            <!--ユーザーeditに飛ぶリンク. class: 'btn btn-outline-secondary btn-block' -->
+            <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block' do %>
+            <i class="fas fa-user-cog"></i>
+            <% end %>
           </div>
           <h2 class="mt-3">New book</h2>
           <%= form_with model: Book.new do |f| %>
@@ -36,7 +38,7 @@
           </div>
           <% end %>
         </div>
-        
+
         <!--ここにメインの右側ページも入れる-->
       </div>
     </div>
