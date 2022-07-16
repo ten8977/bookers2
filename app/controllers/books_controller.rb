@@ -4,18 +4,21 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to books_path #booksの詳細ページに飛ぶ
+    redirect_to "/books/#{@book.id}"
   end
 
   def index
+    @books = Book.all        #page(params[:page])
   end
 
   def show
+    @book = Book.find(params[:id])
+    @user = @book.user
   end
-  
+
   def edit
   end
-  
+
   def destroy
   end
 
@@ -25,7 +28,7 @@ class BooksController < ApplicationController
     private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :opinion)
   end
 
 end
