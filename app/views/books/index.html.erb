@@ -1,13 +1,25 @@
 <h1>Books#index</h1>
 
-<%= render 'user_info/user_info', user: @user %>
+<%= render 'user_info/user_info', user: @user %> <!--部分テンプレート-->
 
 
-<h1>投稿一覧</h1>
+<body></body>
 
-<%= @books.each do |book| %>
 
-  <p>タイトル</p>
+
+
+
+
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+
+  <%= image_tag book.user.get_profile_image(100,100) %>
+
+  <p>Title</p>
   <span><%= book.title %></span>
+
+    <p>Opinion</p>
+  <span><%= book.body %></span>
 
 <% end %>

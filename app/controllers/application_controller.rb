@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    user_path(resource.id) #ここの"about"部分を変更？
+    user_path(resource.id) #変える前の表記
   end
 
   def after_sign_out_path_for(resource)

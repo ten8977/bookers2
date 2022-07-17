@@ -27,7 +27,7 @@
                 <li><%= link_to users_path, class: 'nav-link text-light' do %><i class="fas fa-home svg-inline--fa fa-home fa-w-18"></i> Home <% end %></li><!--usersのshowへ-->
                 <li><%= link_to users_path(current_user), class: 'nav-link text-light' do %><i class="fas fa-users"></i> Users <% end %></li>  <!--usersのindexへ-->
                 <li><%= link_to books_path(current_user), class: 'nav-link text-light' do %><i class="fas fa-book-open"></i> Books <% end %></li> <!--booksのindexへ-->
-                <li><%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %><i class="fas fa-sign-out-alt"></i> Lou out <% end %></li>
+                <li><%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %><i class="fas fa-sign-out-alt"></i> Log out <% end %></li>
 
               <% else %>
                 <li><%= link_to top_path, class: 'nav-link text-light' do %><i class="fas fa-home svg-inline--fa fa-home fa-w-18"></i> Home <% end %></li>
