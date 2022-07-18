@@ -1,8 +1,45 @@
-<h1>マイページ（仮）users_showページ</h1>
-
-<!-- ユーザーの詳細 -->
-
-<%= render 'user_info/user_info',user: @user %>
 
 
+<body>
+  <main>
+    <p id="notice"></p><!--各ページのクラス-->
+    <div class="container px-5 px-sm-0"><!--各ページのクラス-->
+      <div class="row"><!--各ページのクラス-->
+        <div class="col-md-3"><!--各ページのクラス-->
+        <%= render 'user_info/user_info',user: @user %><!--部分テンプレート-->
+        </div>
 
+        <!--ここから上がUser info-->
+
+        <div class="col-md-8 offset-md-1">
+          <h2>Books</h2>
+          <table class="table table-hover table-inverse">
+              <thead>
+                  <tr>
+                      <th></th>
+                      <th>Title</th>
+                      <th>Opinion</th>
+                      <th colspan="3"></th>
+                  </tr>
+              </thead>
+              <tbody>
+
+
+                    <% @books.each do |book| %>
+                      <tr>
+                        <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+                        <td><%= book.title %></td>
+                        <td><%= book.body %></td>
+                      </tr>
+                    <% end %>
+
+
+              </tbody>
+
+
+            </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
