@@ -1,3 +1,37 @@
-<h1>Books#show</h1>
+<body>
+  <main>
+    <p id="notice"></p><!--各ページのクラス-->
+    <div class="container px-5 px-sm-0"><!--各ページのクラス-->
+      <div class="row"><!--各ページのクラス-->
+        <div class="col-md-3"><!--各ページのクラス-->
+        <%= render 'user_info/user_info',user: @user %><!--部分テンプレート-->
+        </div>
 
-<%= render 'user_info/user_info', user: @user %>
+        <!--ここから上がUser info-->
+
+
+        <div class="col-md-8 offset-md-1">
+          <h2>Book detail</h2>
+          <table class="table">
+            <tbody>
+                  <tr>
+                    <td><%= link_to  "/users/#{@book.user.id}" do %>
+                      <%= image_tag @book.user.get_profile_image(100,100) %><br>
+                      <%= @user.name %>
+                      <% end %></td>
+                    <td><%= link_to @book.title, "/books/#{@book.id}" %></td>
+                    <td><%= @book.body %></td>
+                    <% if @book.user == current_user %>
+                    <td><%= link_to 'Edit', edit_book_path, class: 'btn btn-sm btn-success' %></td>
+                    <td><%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger' %>
+                    <% end %>
+                    </td>
+                  </tr>
+               </tbody>
+          </table>
+        </div>
+
+      </div><!--"row"の閉じ-->
+    </div><!--"container px-5 px-sm-0"の閉じ-->
+  </main>
+</body>
