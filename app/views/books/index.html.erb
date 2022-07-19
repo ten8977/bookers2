@@ -2,6 +2,16 @@
   <main>
     <p id="notice"></p><!--各ページのクラス-->
     <div class="container px-5 px-sm-0"><!--各ページのクラス-->
+      <div id="error_explanation">
+        <% if @book.errors.any? %>
+        <h3><%= @book.errors.count %>  errors prohibited this book from being saved:</h3>
+        <ul>
+        <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+      </div>
       <div class="row"><!--各ページのクラス-->
         <div class="col-md-3"><!--各ページのクラス-->
         <%= render 'user_info/user_info',user: @user %><!--部分テンプレート-->
@@ -26,7 +36,7 @@
                     <td><%= link_to  "/users/#{book.user.id}" do %>
                       <%= image_tag book.user.get_profile_image(100,100) %>
                       <% end %>
-                    </td> 
+                    </td>
                     <td><%= link_to book.title, "/books/#{book.id}" %></td>
                     <td><%= book.body %></td>
                   </tr>
